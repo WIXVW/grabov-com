@@ -1,3 +1,5 @@
+import { Carousel } from "@/components/Carousel";
+
 export default function Home() {
   return (
     <main>
@@ -106,6 +108,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* BLOCK 3 — showcase carousel */}
+      <Carousel />
     </main>
   );
 }

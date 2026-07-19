@@ -80,6 +80,37 @@ h1,h2,h3{ margin:0; }
 .cat:hover .more svg{ transform:translateX(3px); }
 @media (max-width:980px){ .cat-grid{ grid-template-columns:1fr; max-width:520px; margin:0 auto; } .cat{ min-height:460px; } }
 
+/* ---------- showcase carousel (block 3) ---------- */
+.showcase{ --slide:min(74vw,1180px); --gap:24px; position:relative; padding:84px 0 96px; background:#fff; overflow:hidden; }
+.showcase-head{ text-align:center; max-width:640px; margin:0 auto 40px; padding:0 24px; }
+.showcase-head h2{ font-size:clamp(28px,3.8vw,44px); font-weight:600; letter-spacing:-.02em; }
+.showcase-head p{ color:var(--muted); font-size:18px; margin:14px 0 0; }
+.carousel{ position:relative; }
+.car-track{ display:flex; gap:var(--gap);
+  transform:translateX(calc((100vw - var(--slide)) / 2 - var(--i,0) * (var(--slide) + var(--gap))));
+  transition:transform .6s cubic-bezier(.22,.61,.36,1); touch-action:pan-y; cursor:grab; }
+.car-track:active{ cursor:grabbing; }
+.slide{ flex:0 0 var(--slide); height:min(70vh,720px); position:relative; border-radius:14px; overflow:hidden; background:#0c0e11; opacity:.5; transition:opacity .5s ease; }
+.slide.active{ opacity:1; }
+.slide .m{ position:absolute; inset:0; }
+.slide .m img, .slide .m video{ width:100%; height:100%; object-fit:cover; display:block; }
+.slide .ov{ position:absolute; inset:0; z-index:2; background:linear-gradient(180deg, rgba(6,8,10,.42) 0%, rgba(6,8,10,0) 42%); }
+.slide .cap{ position:absolute; top:46px; left:0; right:0; z-index:3; text-align:center; color:#fff; padding:0 20px; }
+.slide .cap .k{ font-size:14px; font-weight:500; opacity:.86; }
+.slide .cap h3{ font-size:clamp(30px,3.6vw,46px); font-weight:600; letter-spacing:-.01em; line-height:1.04; margin:6px 0 0; text-shadow:0 2px 18px rgba(0,0,0,.35); }
+.slide .cap .more{ display:inline-flex; align-items:center; gap:5px; margin-top:16px; font-size:15px; font-weight:500; }
+.slide .cap .more svg{ transition:transform .18s; }
+.slide .cap .more:hover svg{ transform:translateX(3px); }
+.car-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:6; width:46px; height:46px; border-radius:999px; border:0; background:transparent; color:#fff; cursor:pointer; display:grid; place-items:center; }
+.car-arrow svg{ filter:drop-shadow(0 1px 8px rgba(0,0,0,.55)); }
+.car-arrow:hover svg{ opacity:.75; }
+.car-arrow.prev{ left:calc((100vw - var(--slide)) / 2 + 6px); }
+.car-arrow.next{ right:calc((100vw - var(--slide)) / 2 + 6px); }
+.car-dots{ display:flex; gap:8px; justify-content:center; margin-top:28px; }
+.car-dots button{ width:26px; height:3px; border-radius:2px; border:0; padding:0; background:rgba(0,0,0,.16); cursor:pointer; transition:.25s; }
+.car-dots button.on{ background:var(--ink); width:36px; }
+@media (max-width:720px){ .showcase{ --slide:86vw; } .car-arrow{ display:none; } .slide{ height:56vh; } }
+
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
   html{ scroll-behavior:auto; }
