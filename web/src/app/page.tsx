@@ -1,4 +1,5 @@
 import { Carousel } from "@/components/Carousel";
+import { ServiceArea } from "@/components/ServiceArea";
 
 export default function Home() {
   return (
@@ -159,6 +160,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* BLOCK 6 — service area */}
+      <ServiceArea />
     </main>
   );
 }

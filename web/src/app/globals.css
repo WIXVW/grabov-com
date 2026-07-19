@@ -136,6 +136,22 @@ h1,h2,h3{ margin:0; }
 .cta5-img img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
 @media (max-width:820px){ .cta5-panel{ grid-template-columns:1fr; } .cta5-text{ padding:44px 28px 30px; } .cta5-img{ height:280px; } }
 
+/* ---------- service area (block 6) ---------- */
+.eyebrow{ display:inline-block; font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
+.area{ padding:100px 0; background:#fff; }
+.area-grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:56px; align-items:center; }
+.area-text h2{ font-size:clamp(30px,4vw,50px); font-weight:600; letter-spacing:-.02em; line-height:1.1; margin:16px 0 18px; }
+.area-text p{ color:var(--muted); font-size:18px; line-height:1.55; max-width:44ch; }
+.area-serving{ margin-top:26px; font-size:14.5px; color:var(--muted); line-height:1.7; }
+.area-serving b{ color:var(--ink); font-weight:600; }
+.area-cta{ margin-top:30px; display:inline-flex; align-items:center; gap:6px; font-size:15px; font-weight:600; color:var(--accent); }
+.area-cta svg{ transition:transform .18s; }
+.area-cta:hover svg{ transform:translateX(3px); }
+.area-map{ background:linear-gradient(180deg,#f6f7f9,#eceff2); padding:20px; }
+.area-map svg{ width:100%; height:auto; display:block; }
+.area-map text{ font-family:var(--sans); }
+@media (max-width:860px){ .area-grid{ grid-template-columns:1fr; gap:38px; } }
+
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
   html{ scroll-behavior:auto; }
