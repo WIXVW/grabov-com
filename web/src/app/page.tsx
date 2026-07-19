@@ -111,6 +111,38 @@ export default function Home() {
 
       {/* BLOCK 3 — showcase carousel */}
       <Carousel />
+
+      {/* BLOCK 4 — how it works */}
+      <section className="hiw" id="how">
+        <div className="wrap">
+          <div className="hiw-head">
+            <h2>How it works</h2>
+            <p>From first message to listing-ready files — four simple steps.</p>
+          </div>
+          <div className="hiw-grid">
+            <div className="hiw-item">
+              <div className="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z" /></svg></div>
+              <h3>Reach out</h3>
+              <p>Send the address and what you need captured — a quote back the same day.</p>
+            </div>
+            <div className="hiw-item">
+              <div className="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2" /><path d="M3 9.5h18M8 2.5v4M16 2.5v4" /></svg></div>
+              <h3>Schedule</h3>
+              <p>We lock a flight window around the weather and the best light.</p>
+            </div>
+            <div className="hiw-item">
+              <div className="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round"><path d="M12 3v5m0 8v5M3 12h5m8 0h5" /><circle cx="12" cy="12" r="3.4" /></svg></div>
+              <h3>The flight</h3>
+              <p>On-site capture of photo and video, fully insured and FAA Part 107.</p>
+            </div>
+            <div className="hiw-item">
+              <div className="ic"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></svg></div>
+              <h3>Delivery</h3>
+              <p>Edited, listing-ready files in your inbox within 24&ndash;48 hours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

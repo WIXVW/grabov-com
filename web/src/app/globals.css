@@ -111,6 +111,19 @@ h1,h2,h3{ margin:0; }
 .car-dots button.on{ background:var(--ink); width:36px; }
 @media (max-width:720px){ .showcase{ --slide:86vw; } .car-arrow{ display:none; } .slide{ height:56vh; } }
 
+/* ---------- how it works (block 4) ---------- */
+.hiw{ background:var(--bg-2); padding:96px 0; }
+.hiw-head{ text-align:center; max-width:640px; margin:0 auto 60px; padding:0 24px; }
+.hiw-head h2{ font-size:clamp(28px,3.8vw,44px); font-weight:600; letter-spacing:-.02em; }
+.hiw-head p{ color:var(--muted); font-size:18px; margin:14px 0 0; }
+.hiw-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+.hiw-item{ text-align:center; padding:0 14px; }
+.hiw-item .ic{ color:#9aa0a6; display:flex; justify-content:center; margin-bottom:22px; }
+.hiw-item h3{ font-size:20px; font-weight:600; color:var(--ink); letter-spacing:-.01em; }
+.hiw-item p{ color:var(--muted); font-size:14.5px; line-height:1.55; margin:12px 0 0; }
+@media (max-width:860px){ .hiw-grid{ grid-template-columns:1fr 1fr; gap:48px 20px; } }
+@media (max-width:480px){ .hiw-grid{ grid-template-columns:1fr; gap:44px; } }
+
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
   html{ scroll-behavior:auto; }
