@@ -143,6 +143,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* BLOCK 5 — CTA banner */}
+      <section className="cta5">
+        <div className="wrap">
+          <div className="cta5-panel">
+            <div className="cta5-text">
+              <h2>Not sure what your listing needs?</h2>
+              <p>Send the address and what you want captured — a quote comes back the same day, no obligation.</p>
+              <a className="pill-blue" href="https://forms.gle/qL1Z1Kp1dSkx2ZaHA">Get a quote</a>
+            </div>
+            <div className="cta5-img">
+              <img src="/hero.jpg" alt="Aerial drone over a Texas property" style={{ objectPosition: "center 45%" }} />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
