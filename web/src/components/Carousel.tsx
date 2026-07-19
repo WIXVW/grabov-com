@@ -15,7 +15,7 @@ type Slide = {
 // Placeholder media — swap for real per-shoot photos/video later.
 // Video slide example: { type: "video", src: "https://cdn/clip.mp4", poster: "/clip.jpg", ... }
 const slides: Slide[] = [
-  { src: "/hero.jpg", pos: "center 45%", kicker: "Aerial reel", title: "Shot over Granbury", href: "#work" },
+  { type: "video", src: "/reel-riverview.mp4", poster: "/reel-riverview.jpg", kicker: "Land & ranch", title: "River View Ranch", href: "#work" },
   { src: "/hero.jpg", pos: "left 55%", kicker: "Real estate", title: "Lakeside estate", href: "#work" },
   { src: "/hero.jpg", pos: "right 50%", kicker: "Land & ranch", title: "1,200-acre survey", href: "#work" },
   { src: "/hero.jpg", pos: "center 30%", kicker: "Golden hour", title: "Sunset flight", href: "#work" },
@@ -29,7 +29,18 @@ const items = [...slides, ...slides, ...slides];
 export function Carousel() {
   const [index, setIndex] = useState(N); // start in the middle copy
   const [animate, setAnimate] = useState(true);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const drag = useRef<{ x: number; active: boolean }>({ x: 0, active: false });
+
+  // Only load/play video once the carousel scrolls into view (keeps initial load light).
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const activeReal = ((index % N) + N) % N;
 
@@ -52,7 +63,7 @@ export function Carousel() {
   }, [animate]);
 
   return (
-    <section className="showcase" id="reel">
+    <section className="showcase" id="reel" ref={sectionRef}>
       <div className="showcase-head">
         <h2>See it in the field.</h2>
         <p>Recent aerial photo and video from shoots across North Central Texas.</p>
@@ -83,7 +94,7 @@ export function Carousel() {
               >
                 <div className="m">
                   {/* Only the centred slide loads/plays its video — neighbours show a light poster. */}
-                  {s.type === "video" && isActive ? (
+                  {s.type === "video" && isActive && inView ? (
                     <video src={s.src} poster={s.poster} muted loop playsInline autoPlay preload="none" />
                   ) : (
                     <img
