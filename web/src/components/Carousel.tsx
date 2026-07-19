@@ -23,25 +23,42 @@ const slides: Slide[] = [
 ];
 
 const AUTOPLAY_MS = 6000;
+const N = slides.length;
+// Triple the list so there are always neighbours on both sides (infinite loop).
+const items = [...slides, ...slides, ...slides];
 
 export function Carousel() {
-  const [i, setI] = useState(0);
-  const n = slides.length;
+  const [index, setIndex] = useState(N); // start in the middle copy
+  const [animate, setAnimate] = useState(true);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const drag = useRef<{ x: number; active: boolean }>({ x: 0, active: false });
 
-  const goTo = useCallback((idx: number) => setI(((idx % n) + n) % n), [n]);
-  const go = useCallback((d: number) => setI((v) => ((v + d) % n + n) % n), [n]);
+  const activeReal = ((index % N) + N) % N;
+
+  const go = useCallback((d: number) => { setAnimate(true); setIndex((v) => v + d); }, []);
+  const goToReal = useCallback((r: number) => { setAnimate(true); setIndex(N + r); }, []);
 
   const stop = useCallback(() => { if (timer.current) clearInterval(timer.current); }, []);
   const start = useCallback(() => {
     stop();
-    timer.current = setInterval(() => setI((v) => (v + 1) % n), AUTOPLAY_MS);
-  }, [n, stop]);
-
+    timer.current = setInterval(() => { setAnimate(true); setIndex((v) => v + 1); }, AUTOPLAY_MS);
+  }, [stop]);
   useEffect(() => { start(); return stop; }, [start, stop]);
 
-  const restart = useCallback(() => { start(); }, [start]);
+  // After the slide animation ends, if we've drifted into a clone copy,
+  // snap back into the middle copy without a transition (seamless loop).
+  const onEnd = useCallback(() => {
+    if (index < N) { setAnimate(false); setIndex(index + N); }
+    else if (index >= 2 * N) { setAnimate(false); setIndex(index - N); }
+  }, [index]);
+
+  // Re-enable transitions on the frame after a seamless snap.
+  useEffect(() => {
+    if (!animate) {
+      const id = requestAnimationFrame(() => requestAnimationFrame(() => setAnimate(true)));
+      return () => cancelAnimationFrame(id);
+    }
+  }, [animate]);
 
   return (
     <section className="showcase" id="reel">
@@ -53,7 +70,8 @@ export function Carousel() {
       <div className="carousel" onMouseEnter={stop} onMouseLeave={start}>
         <div
           className="car-track"
-          style={{ ["--i" as string]: i } as React.CSSProperties}
+          style={{ ["--i" as string]: index, transition: animate ? undefined : "none" } as React.CSSProperties}
+          onTransitionEnd={onEnd}
           onPointerDown={(e) => { drag.current = { x: e.clientX, active: true }; stop(); }}
           onPointerUp={(e) => {
             if (!drag.current.active) return;
@@ -61,11 +79,16 @@ export function Carousel() {
             drag.current.active = false;
             if (dx > 60) go(-1);
             else if (dx < -60) go(1);
-            restart();
+            start();
           }}
         >
-          {slides.map((s, idx) => (
-            <a key={idx} className={`slide${idx === i ? " active" : ""}`} href={s.href || "#work"} onClick={(e) => { if (idx !== i) e.preventDefault(); }}>
+          {items.map((s, idx) => (
+            <a
+              key={idx}
+              className={`slide${idx === index ? " active" : ""}`}
+              href={s.href || "#work"}
+              onClick={(e) => { if (idx !== index) e.preventDefault(); }}
+            >
               <div className="m">
                 {s.type === "video" ? (
                   <video src={s.src} poster={s.poster} muted loop playsInline autoPlay />
@@ -85,17 +108,17 @@ export function Carousel() {
           ))}
         </div>
 
-        <button className="car-arrow prev" aria-label="Previous" onClick={() => { go(-1); restart(); }}>
+        <button className="car-arrow prev" aria-label="Previous" onClick={() => { go(-1); start(); }}>
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
         </button>
-        <button className="car-arrow next" aria-label="Next" onClick={() => { go(1); restart(); }}>
+        <button className="car-arrow next" aria-label="Next" onClick={() => { go(1); start(); }}>
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 6 6 6-6 6" /></svg>
         </button>
       </div>
 
       <div className="car-dots">
         {slides.map((_, idx) => (
-          <button key={idx} className={idx === i ? "on" : ""} aria-label={`Slide ${idx + 1}`} onClick={() => { goTo(idx); restart(); }} />
+          <button key={idx} className={idx === activeReal ? "on" : ""} aria-label={`Slide ${idx + 1}`} onClick={() => { goToReal(idx); start(); }} />
         ))}
       </div>
     </section>

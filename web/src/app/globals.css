@@ -66,7 +66,7 @@ h1,h2,h3{ margin:0; }
 .cats-head h2{ font-size:clamp(32px,4.6vw,54px); font-weight:600; letter-spacing:-.02em; line-height:1.08; }
 .cats-head p{ color:var(--muted); font-size:19px; line-height:1.5; margin:20px auto 0; max-width:60ch; }
 .cat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.cat{ position:relative; border-radius:10px; overflow:hidden; min-height:560px; background:#e9edf1; display:block; }
+.cat{ position:relative; overflow:hidden; min-height:560px; background:#e9edf1; display:block; }
 .cat .bg{ position:absolute; inset:0; z-index:0; }
 .cat .bg img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
 .cat:hover .bg img{ transform:scale(1.04); }
@@ -90,7 +90,7 @@ h1,h2,h3{ margin:0; }
   transform:translateX(calc((100vw - var(--slide)) / 2 - var(--i,0) * (var(--slide) + var(--gap))));
   transition:transform .6s cubic-bezier(.22,.61,.36,1); touch-action:pan-y; cursor:grab; }
 .car-track:active{ cursor:grabbing; }
-.slide{ flex:0 0 var(--slide); height:min(70vh,720px); position:relative; border-radius:14px; overflow:hidden; background:#0c0e11; opacity:.5; transition:opacity .5s ease; }
+.slide{ flex:0 0 var(--slide); height:min(70vh,720px); position:relative; overflow:hidden; background:#0c0e11; opacity:.5; transition:opacity .5s ease; }
 .slide.active{ opacity:1; }
 .slide .m{ position:absolute; inset:0; }
 .slide .m img, .slide .m video{ width:100%; height:100%; object-fit:cover; display:block; }
