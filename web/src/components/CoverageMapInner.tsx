@@ -8,15 +8,16 @@ import L from "leaflet";
 const MI = 1609.34;
 const GRANBURY: [number, number] = [32.4421, -97.7936];
 
-const cities: { n: string; c: [number, number]; label?: boolean }[] = [
-  { n: "Fort Worth", c: [32.7555, -97.3308], label: true },
-  { n: "Weatherford", c: [32.7593, -97.7972], label: true },
-  { n: "Mineral Wells", c: [32.8085, -98.1128], label: true },
-  { n: "Stephenville", c: [32.2207, -98.2023], label: true },
-  { n: "Glen Rose", c: [32.2321, -97.7561], label: true },
-  { n: "Cleburne", c: [32.3474, -97.3867], label: true },
-  { n: "Burleson", c: [32.5421, -97.3208], label: true },
-  { n: "Cresson", c: [32.5343, -97.6139], label: true },
+type Dir = "top" | "bottom" | "left" | "right";
+const cities: { n: string; c: [number, number]; dir: Dir; off: [number, number] }[] = [
+  { n: "Fort Worth", c: [32.7555, -97.3308], dir: "right", off: [8, 0] },
+  { n: "Weatherford", c: [32.7593, -97.7972], dir: "top", off: [0, -6] },
+  { n: "Mineral Wells", c: [32.8085, -98.1128], dir: "left", off: [-8, 0] },
+  { n: "Stephenville", c: [32.2207, -98.2023], dir: "left", off: [-8, 0] },
+  { n: "Glen Rose", c: [32.2321, -97.7561], dir: "bottom", off: [0, 7] },
+  { n: "Cleburne", c: [32.3474, -97.3867], dir: "right", off: [8, 0] },
+  { n: "Burleson", c: [32.5421, -97.3208], dir: "right", off: [8, 0] },
+  { n: "Cresson", c: [32.5343, -97.6139], dir: "top", off: [0, -6] },
 ];
 
 function FitBounds() {
@@ -75,12 +76,12 @@ export function CoverageMapInner() {
 
         {cities.map((c) => (
           <CircleMarker key={c.n} center={c.c} radius={3.6} pathOptions={{ color: "#fff", weight: 1.4, fillColor: "#3a3d42", fillOpacity: 1 }}>
-            {c.label && <Tooltip permanent direction="top" offset={[0, -3]} className="area-tip">{c.n}</Tooltip>}
+            <Tooltip permanent direction={c.dir} offset={c.off} className="area-tip">{c.n}</Tooltip>
           </CircleMarker>
         ))}
 
         <CircleMarker center={GRANBURY} radius={7} pathOptions={{ color: "#fff", weight: 2.5, fillColor: "#2b7de9", fillOpacity: 1 }}>
-          <Tooltip permanent direction="right" offset={[8, 0]} className="area-tip area-tip-main">Granbury</Tooltip>
+          <Tooltip permanent direction="left" offset={[-9, 0]} className="area-tip area-tip-main">Granbury</Tooltip>
         </CircleMarker>
       </MapContainer>
       <div className="area-attr">© OpenStreetMap · © CARTO</div>
