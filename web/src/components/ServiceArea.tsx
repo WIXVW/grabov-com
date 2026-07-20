@@ -8,13 +8,12 @@ export function ServiceArea() {
           <span className="eyebrow">Coverage</span>
           <h2>Where we fly.</h2>
           <p>
-            Based in Granbury, flying anywhere within about 100 miles across North Central
-            Texas — the DFW metroplex, Waco and everything between — and farther out on request.
+            Based in Granbury, flying across North Central Texas — out to Fort Worth and
+            Mineral Wells, roughly a 60-mile radius — and farther out on request.
           </p>
           <div className="area-serving">
-            <b>Serving:</b> Granbury · Fort Worth · Dallas · Arlington · Weatherford ·
-            Cleburne · Burleson · Stephenville · Glen Rose · Cresson · Mineral Wells · Waco
-            &amp; surrounding communities.
+            <b>Serving:</b> Granbury · Fort Worth · Weatherford · Mineral Wells · Cresson ·
+            Cleburne · Burleson · Glen Rose · Stephenville &amp; surrounding communities.
           </div>
           <a className="area-cta" href="https://forms.gle/qL1Z1Kp1dSkx2ZaHA">
             Not sure if you&apos;re in range? Just ask
