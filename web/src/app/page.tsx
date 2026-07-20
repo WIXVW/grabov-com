@@ -1,5 +1,6 @@
 import { Carousel } from "@/components/Carousel";
 import { ServiceArea } from "@/components/ServiceArea";
+import { QuoteForm } from "@/components/QuoteForm";
 
 export default function Home() {
   return (
@@ -163,6 +164,9 @@ export default function Home() {
 
       {/* BLOCK 6 — service area */}
       <ServiceArea />
+
+      {/* BLOCK 7 — quote form */}
+      <QuoteForm />
     </main>
   );
 }

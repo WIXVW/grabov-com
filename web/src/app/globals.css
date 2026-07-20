@@ -157,6 +157,32 @@ h1,h2,h3{ margin:0; }
 .area-attr{ position:absolute; right:9px; bottom:6px; z-index:500; font-size:10px; color:#9aa0a6; }
 @media (max-width:860px){ .area-grid{ grid-template-columns:1fr; gap:38px; } .area-map{ height:380px; } }
 
+/* ---------- quote form (block 7) ---------- */
+.form{ padding:100px 0; background:#fff; scroll-margin-top:70px; }
+.form-grid{ display:grid; grid-template-columns:.82fr 1.18fr; gap:56px; align-items:start; }
+.form-intro h2{ font-size:clamp(30px,4vw,48px); font-weight:600; letter-spacing:-.02em; line-height:1.1; margin:16px 0 16px; }
+.form-intro p{ color:var(--muted); font-size:18px; line-height:1.55; max-width:38ch; }
+.form-contacts{ margin-top:32px; display:flex; flex-direction:column; gap:15px; }
+.form-contacts a{ display:flex; align-items:center; gap:13px; font-size:15.5px; color:var(--ink); font-weight:500; }
+.form-contacts a:hover{ color:var(--accent); }
+.form-contacts .ic{ width:38px; height:38px; border-radius:999px; background:var(--bg-2); color:var(--accent); display:grid; place-items:center; flex:none; }
+.form-card{ background:#f6f7f9; border:1px solid var(--line); padding:32px; }
+.qform{ display:grid; gap:16px; }
+.qrow{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.qfield label{ display:block; font-size:12px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
+.qform input, .qform select, .qform textarea{ width:100%; background:#fff; border:1px solid var(--line); padding:12px 14px; font-size:15px; font-family:inherit; color:var(--ink); }
+.qform input:focus, .qform select:focus, .qform textarea:focus{ outline:2px solid var(--accent); outline-offset:0; border-color:var(--accent); }
+.qform textarea{ resize:vertical; min-height:92px; }
+.qform .submit{ width:100%; justify-content:center; border:0; cursor:pointer; margin-top:4px; }
+.qform .submit:disabled{ opacity:.6; cursor:default; }
+.qform .note{ font-size:12.5px; color:var(--muted); text-align:center; margin-top:2px; }
+.qform .err{ font-size:13px; color:#d43f3f; text-align:center; }
+.form-ok{ text-align:center; padding:34px 12px; }
+.form-ok .ic{ width:58px; height:58px; border-radius:999px; background:#e7f0fd; color:var(--accent); display:grid; place-items:center; margin:0 auto 18px; }
+.form-ok h3{ font-size:23px; font-weight:600; }
+.form-ok p{ color:var(--muted); margin-top:9px; }
+@media (max-width:860px){ .form-grid{ grid-template-columns:1fr; gap:38px; } .qrow{ grid-template-columns:1fr; } }
+
 @media (prefers-reduced-motion:reduce){
   *{ animation:none !important; transition:none !important; }
   html{ scroll-behavior:auto; }
