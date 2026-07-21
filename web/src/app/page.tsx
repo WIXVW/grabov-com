@@ -1,10 +1,12 @@
 import { Carousel } from "@/components/Carousel";
 import { ServiceArea } from "@/components/ServiceArea";
 import { QuoteForm } from "@/components/QuoteForm";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <>
+      <main>
       <section className="hero" id="top">
         <div className="hero-bg">
           <img src="/hero.jpg" alt="Aerial drone photography over North Central Texas" />
@@ -167,6 +169,10 @@ export default function Home() {
 
       {/* BLOCK 7 — quote form */}
       <QuoteForm />
-    </main>
+      </main>
+
+      {/* BLOCK 8 — footer */}
+      <Footer />
+    </>
   );
 }
