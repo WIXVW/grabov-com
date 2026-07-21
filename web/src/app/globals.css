@@ -138,7 +138,7 @@ h1,h2,h3{ margin:0; }
 
 /* ---------- service area (block 6) ---------- */
 .eyebrow{ display:inline-block; font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
-.area{ padding:100px 0; background:var(--bg-2); }
+.area{ padding:100px 0; background:#fff; }
 .area-grid{ display:grid; grid-template-columns:1.18fr .82fr; gap:56px; align-items:center; }
 .area-text h2{ font-size:clamp(30px,4vw,50px); font-weight:600; letter-spacing:-.02em; line-height:1.1; margin:16px 0 18px; }
 .area-text p{ color:var(--muted); font-size:18px; line-height:1.55; max-width:44ch; }
@@ -147,8 +147,8 @@ h1,h2,h3{ margin:0; }
 .area-cta{ margin-top:30px; display:inline-flex; align-items:center; gap:6px; font-size:15px; font-weight:600; color:var(--accent); }
 .area-cta svg{ transition:transform .18s; }
 .area-cta:hover svg{ transform:translateX(3px); }
-.area-map{ position:relative; height:480px; overflow:hidden; background:#eef1f3; }
-.area-map .leaflet-container{ height:100%; width:100%; background:#eef1f3; font-family:var(--sans); }
+.area-map{ position:relative; height:480px; overflow:hidden; background:var(--bg-2); }
+.area-map .leaflet-container{ height:100%; width:100%; background:var(--bg-2); font-family:var(--sans); }
 /* keep the real map subtle ("not bright") — fade only the tiles, not our overlay */
 .area-map .leaflet-tile-pane{ opacity:.72; filter:grayscale(.12) saturate(.85); }
 .area-map .leaflet-tooltip.area-tip{ background:transparent; border:0; box-shadow:none; padding:0; color:#2a2d31; font-size:11.5px; font-weight:600; white-space:nowrap; text-shadow:0 1px 3px #fff, 0 0 2px #fff; }
