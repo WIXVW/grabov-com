@@ -4,6 +4,7 @@ export function ServiceArea() {
   return (
     <section className="area" id="coverage">
       <div className="wrap area-grid">
+        <CoverageMap />
         <div className="area-text">
           <span className="eyebrow">Coverage</span>
           <h2>Where we fly.</h2>
@@ -20,8 +21,6 @@ export function ServiceArea() {
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 6 6 6-6 6" /></svg>
           </a>
         </div>
-
-        <CoverageMap />
       </div>
     </section>
   );
