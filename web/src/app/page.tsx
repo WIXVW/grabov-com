@@ -80,9 +80,6 @@ export default function Home() {
               <div className="c-in">
                 <div className="kick">Real Estate &amp; Airbnb</div>
                 <h3>Listings that sell faster from above</h3>
-                <span className="more">Learn More
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 6 6 6-6 6" /></svg>
-                </span>
               </div>
             </a>
 
@@ -92,9 +89,6 @@ export default function Home() {
               <div className="c-in">
                 <div className="kick">Land, Ranch &amp; Farm</div>
                 <h3>Show every acre, access and water</h3>
-                <span className="more">Learn More
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 6 6 6-6 6" /></svg>
-                </span>
               </div>
             </a>
 
@@ -104,9 +98,6 @@ export default function Home() {
               <div className="c-in">
                 <div className="kick">Construction &amp; Roofs</div>
                 <h3>Document progress without the ladder</h3>
-                <span className="more">Learn More
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 6 6 6-6 6" /></svg>
-                </span>
               </div>
             </a>
           </div>

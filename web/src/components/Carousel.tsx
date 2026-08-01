@@ -109,9 +109,6 @@ export function Carousel() {
                 <div className="cap">
                   {s.kicker && <div className="k">{s.kicker}</div>}
                   <h3>{s.title}</h3>
-                  <span className="more">Learn More
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round"><path d="m9 6 6 6-6 6" /></svg>
-                  </span>
                 </div>
               </a>
             );
