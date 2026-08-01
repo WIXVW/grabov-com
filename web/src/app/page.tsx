@@ -75,7 +75,7 @@ export default function Home() {
           </div>
           <div className="cat-grid">
             <a className="cat" href="#book">
-              <div className="bg"><img src="/hero.jpg" alt="Aerial real estate photography" style={{ objectPosition: "center 55%" }} /></div>
+              <div className="bg"><img src="/real-estate-airbnb.jpg" alt="Aerial real estate photography" /></div>
               <div className="top-scrim" />
               <div className="c-in">
                 <div className="kick">Real Estate &amp; Airbnb</div>
@@ -87,7 +87,7 @@ export default function Home() {
             </a>
 
             <a className="cat" href="#book">
-              <div className="bg"><img src="/hero.jpg" alt="Aerial land and ranch survey" style={{ objectPosition: "right 50%" }} /></div>
+              <div className="bg"><img src="/land-ranch-farm.jpg" alt="Aerial land and ranch survey" /></div>
               <div className="top-scrim" />
               <div className="c-in">
                 <div className="kick">Land, Ranch &amp; Farm</div>
@@ -99,7 +99,7 @@ export default function Home() {
             </a>
 
             <a className="cat" href="#book">
-              <div className="bg"><img src="/hero.jpg" alt="Aerial construction and roof documentation" style={{ objectPosition: "left 60%" }} /></div>
+              <div className="bg"><img src="/construction-roof.jpg" alt="Aerial construction and roof documentation" /></div>
               <div className="top-scrim" />
               <div className="c-in">
                 <div className="kick">Construction &amp; Roofs</div>
