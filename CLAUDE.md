@@ -1,19 +1,23 @@
-# Grabov Aerial Media — project brief (handoff for any Claude session)
+# AboveCapture — project brief (handoff for any Claude session)
 
 This file is auto-loaded by Claude Code. Read it before doing anything so a fresh
 session (web / phone / new machine) continues exactly where we left off.
 
 ## The business
-Grabov Aerial Media — **FAA Part 107 certified drone photography & video** for real
+**AboveCapture** (rebranded from "Grabov Aerial Media" — write the name **as one word,
+AboveCapture**) — **FAA Part 107 certified drone photography & video** for real
 estate, land, ranches, farms, construction and roof inspections. Based in **Granbury,
 TX**, serving ~50 miles across North Central Texas (Weatherford, Glen Rose,
 Stephenville, Cleburne, Cresson). Owner: **Max** · (682) 288-2885 · max@grabov.com ·
-grabov.com. Goal of the site: leads/bookings + showcase the aerial work.
+abovecapture.com. Goal of the site: leads/bookings + showcase the aerial work.
+NOTE: brand is AboveCapture but **email stays max@grabov.com** (Max's choice).
 
 ## The site (this is the live project)
 - **App:** Next.js 16 (App Router) + React 19 + Tailwind v4 + Framer Motion, in **`web/`**.
-- **Live:** https://grabov-com.vercel.app — auto-deploys on every push to `main`.
-- **Repo:** github.com/WIXVW/grabov-com (branch `main`).
+- **Live:** https://abovecapture.com (custom domain) — also on the Vercel URL
+  https://grabov-com.vercel.app; auto-deploys on every push to `main`.
+- **Repo:** github.com/WIXVW/grabov-com (branch `main`) — repo/Vercel project keep the
+  old `grabov-com` slug; only the public brand + custom domain changed.
 - **Vercel settings that MUST stay:** Root Directory = `web`, Framework Preset = Next.js.
   (Wrong preset → 404; empty root → serves the legacy static `index.html` at repo root.)
 

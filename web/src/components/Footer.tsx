@@ -4,7 +4,7 @@ export function Footer() {
       <div className="wrap">
         <div className="footer-top">
           <div>
-            <div className="fbrand">Grabov <span>Aerial</span></div>
+            <div className="fbrand">Above<span>Capture</span></div>
             <p className="blurb">
               FAA Part 107 certified drone photography &amp; video for real estate, land,
               ranches, construction and roof inspections across North Central Texas.
@@ -37,7 +37,7 @@ export function Footer() {
 
         <div className="footer-bottom">
           <div className="copy">
-            © 2026 Grabov Aerial Media · Granbury, TX · FAA Part 107 Certified<br />
+            © 2026 AboveCapture · Granbury, TX · FAA Part 107 Certified<br />
             Serving Granbury and North Central Texas within ~60 miles.
           </div>
           <div className="footer-social">

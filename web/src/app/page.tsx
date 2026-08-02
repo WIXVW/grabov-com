@@ -17,7 +17,7 @@ export default function Home() {
         <div className="nav">
           <div className="wrap nav-in">
             <div className="nav-left">
-              <a className="logo" href="#top">GRABOV</a>
+              <a className="logo" href="#top">Above<span>Capture</span></a>
               <nav className="nav-links">
                 <a href="#work">Work</a>
                 <a href="#services">Services</a>
@@ -42,7 +42,7 @@ export default function Home() {
         {/* hero content */}
         <div className="hero-in">
           <div className="kick">Aerial Photography &amp; Video · Real Estate &amp; Land</div>
-          <h1>Grabov <span>Aerial</span></h1>
+          <h1>Above<span>Capture</span></h1>
           <div className="tag">See it from above</div>
           <div className="btns">
             <a className="hbtn" href="#work">

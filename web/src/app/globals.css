@@ -26,6 +26,7 @@ h1,h2,h3{ margin:0; }
 .nav-in{ display:flex; align-items:center; justify-content:space-between; height:66px; color:#fff; }
 .nav-left{ display:flex; align-items:center; gap:38px; }
 .logo{ font-weight:800; font-size:21px; letter-spacing:.02em; }
+.logo span{ font-weight:300; }
 .nav-links{ display:flex; gap:28px; }
 .nav-links a{ font-size:14.5px; color:rgba(255,255,255,.92); font-weight:500; transition:opacity .15s; }
 .nav-links a:hover{ opacity:.7; }
