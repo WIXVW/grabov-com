@@ -1,3 +1,4 @@
+import { HeroStage } from "@/components/HeroStage";
 import { Carousel } from "@/components/Carousel";
 import { ServiceArea } from "@/components/ServiceArea";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -8,9 +9,7 @@ export default function Home() {
     <>
       <main>
       <section className="hero" id="top">
-        <div className="hero-bg">
-          <img src="/hero.jpg" alt="Aerial drone photography over North Central Texas" />
-        </div>
+        <HeroStage />
         <div className="hero-grad" />
 
         {/* top nav */}
@@ -56,14 +55,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* category switcher */}
-        <div className="switcher">
-          <div className="wrap">
-            <a href="#services">Real Estate &amp; Airbnb</a>
-            <a href="#services" className="on">Land, Ranch &amp; Farm</a>
-            <a href="#services">Construction &amp; Roofs</a>
-          </div>
-        </div>
       </section>
 
       {/* BLOCK 2 — category cards */}
