@@ -7,6 +7,7 @@ type Slide = {
   src: string;       // image url, or video url (mp4/hls) for type: "video"
   poster?: string;   // required for video slides — shown until/instead of the clip
   pos?: string;
+  fit?: "cover" | "contain"; // "contain" keeps the whole frame (e.g. orthophoto edges) on the dark slide bg
   kicker?: string;
   title: string;
   href?: string;
@@ -16,10 +17,8 @@ type Slide = {
 // Video slide example: { type: "video", src: "https://cdn/clip.mp4", poster: "/clip.jpg", ... }
 const slides: Slide[] = [
   { type: "video", src: "/reel-riverview.mp4", poster: "/reel-riverview.jpg", kicker: "Land & ranch", title: "River View Ranch", href: "#work" },
-  { src: "/hero.jpg", pos: "left 55%", kicker: "Real estate", title: "Lakeside estate", href: "#work" },
-  { src: "/hero.jpg", pos: "right 50%", kicker: "Land & ranch", title: "1,200-acre survey", href: "#work" },
-  { src: "/hero.jpg", pos: "center 30%", kicker: "Golden hour", title: "Sunset flight", href: "#work" },
-  { src: "/hero.jpg", pos: "left 70%", kicker: "Construction", title: "Build progress · Cleburne", href: "#work" },
+  { src: "/ranch-aerial-photography-sunset.jpg", pos: "center 60%", kicker: "Land & ranch", title: "Country estate, golden hour", href: "#work" },
+  { src: "/aerial-orthomosaic-site-survey.jpg", fit: "contain", kicker: "Mapping & survey", title: "Full-site orthomosaic", href: "#work" },
 ];
 
 const N = slides.length;
@@ -101,7 +100,7 @@ export function Carousel() {
                       src={s.type === "video" ? (s.poster ?? s.src) : s.src}
                       alt={s.title}
                       loading="lazy"
-                      style={{ objectPosition: s.pos }}
+                      style={{ objectPosition: s.pos, objectFit: s.fit }}
                     />
                   )}
                 </div>
