@@ -1,52 +1,42 @@
-const TIERS = [
+// Priced by kind of shoot. Each category has a photo line and a photo+video line
+// (video costs more — that's where the color-grading hours go).
+const CATS = [
   {
-    name: "Aerial Essentials",
-    price: "$99",
-    per: "/ property",
-    desc: "Everything a standard listing needs.",
-    features: [
-      "10–15 edited aerial photos",
-      "HDR + sky cleanup",
-      "MLS-sized & full-resolution",
-      "Next-day delivery (24h)",
+    name: "Real Estate & Airbnb",
+    tag: "Homes, condos & short-term rentals",
+    rows: [
+      { label: "Aerial photos", desc: "12–18 graded stills · MLS + full-res", price: "$225" },
+      { label: "Photos + video", desc: "+ 45–60s color-graded reel", price: "$450" },
     ],
-    featured: false,
+    note: "Twilight / golden-hour window +$75",
+    cta: "Book real estate",
   },
   {
-    name: "Aerial + Video",
-    price: "$199",
-    per: "/ property",
-    desc: "Photos plus a scroll-stopping reel.",
-    features: [
-      "20–25 edited aerial photos",
-      "30–60 sec aerial video with music",
-      "Branded & unbranded versions",
-      "Built for MLS & social",
-      "24–48h delivery",
+    name: "Land, Ranch & Farm",
+    tag: "Acreage, ranches & farmland",
+    rows: [
+      { label: "Aerial photos", desc: "Full-property stills · boundaries & water", price: "from $400" },
+      { label: "Photos + video", desc: "+ cinematic graded flyover", price: "from $750" },
     ],
-    featured: true,
+    note: "Orthomosaic acreage map +$250 · large tracts quoted by size",
+    cta: "Book land & ranch",
   },
   {
-    name: "Signature",
-    price: "$349",
-    per: "/ property",
-    desc: "The full cinematic treatment.",
-    features: [
-      "30+ edited aerial photos",
-      "Extended cinematic aerial video",
-      "Golden-hour / twilight window",
-      "Priority 24h delivery",
+    name: "Construction & Roofs",
+    tag: "Builds, sites & roof inspections",
+    rows: [
+      { label: "Roof & site photos", desc: "Inspection stills + progress set", price: "$200" },
+      { label: "Photos + video", desc: "+ graded progress reel", price: "$400" },
     ],
-    featured: false,
+    note: "Ongoing builds — monthly retainer available",
+    cta: "Book construction",
   },
 ];
 
 const ADDONS = [
-  "Add aerial to a shoot +$50",
-  "Golden hour +$60",
-  "Same-day rush +$75",
-  "Orthomosaic map +$120",
-  "Extra video +$100",
+  "Same-day rush +$100",
+  "Extra edited video +$150",
+  "Travel beyond the coverage area — quoted",
 ];
 
 export function Pricing() {
@@ -55,56 +45,35 @@ export function Pricing() {
       <div className="wrap">
         <div className="pricing-head">
           <span className="eyebrow">Pricing</span>
-          <h2>Straightforward rates.</h2>
+          <h2>Priced by the kind of shoot.</h2>
           <p>
-            FAA Part 107 certified, fully edited and listing-ready — no hidden fees.
-            Travel inside the coverage area is included.
+            FAA Part 107 certified. Every photo and clip is fully color-graded and
+            listing-ready — travel inside the coverage area is included.
           </p>
         </div>
 
-        <div className="price-grid">
-          {TIERS.map((t) => (
-            <div key={t.name} className={`price-card${t.featured ? " feat" : ""}`}>
-              {t.featured && <div className="pc-badge">Most popular</div>}
-              <div className="pc-name">{t.name}</div>
-              <div className="pc-price">
-                <span className="amt">{t.price}</span>
-                <span className="per">{t.per}</span>
-              </div>
-              <div className="pc-desc">{t.desc}</div>
-              <ul className="pc-list">
-                {t.features.map((f) => (
-                  <li key={f}>{f}</li>
+        <div className="price-cats">
+          {CATS.map((c) => (
+            <div key={c.name} className="pcat">
+              <span className="pcat-name">{c.name}</span>
+              <div className="pcat-tag">{c.tag}</div>
+              <div className="pcat-rows">
+                {c.rows.map((r) => (
+                  <div key={r.label} className="prow">
+                    <div className="prow-l">
+                      <b>{r.label}</b>
+                      <span>{r.desc}</span>
+                    </div>
+                    <div className="prow-p">{r.price}</div>
+                  </div>
                 ))}
-              </ul>
-              <a className={`pc-cta${t.featured ? " on" : ""}`} href="#book">
-                Book this
+              </div>
+              <div className="pcat-note">{c.note}</div>
+              <a className="pc-cta" href="#book">
+                {c.cta}
               </a>
             </div>
           ))}
-        </div>
-
-        <div className="price-two">
-          <div className="price-wide">
-            <div className="pw-top">
-              <span className="pc-name">Land, Ranch &amp; Farm</span>
-              <span className="pw-from">from $275</span>
-            </div>
-            <p>
-              10+ acres — full-property aerial photos, boundaries and access, water and
-              structures. Orthomosaic acreage map optional. Large tracts quoted by size.
-            </p>
-          </div>
-          <div className="price-wide">
-            <div className="pw-top">
-              <span className="pc-name">Construction &amp; Roofs</span>
-              <span className="pw-from">from $99 / visit</span>
-            </div>
-            <p>
-              Progress documentation from above and roof-inspection stills. Monthly rates
-              available for ongoing builds.
-            </p>
-          </div>
         </div>
 
         <div className="price-addons">
