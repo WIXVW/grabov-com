@@ -24,7 +24,6 @@ export default function Home() {
                 <a href="#services">Services</a>
                 <a href="#coverage">Coverage</a>
                 <a href="#pricing">Pricing</a>
-                <a href="#about">About</a>
               </nav>
             </div>
             <div className="nav-right">
