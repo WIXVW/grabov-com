@@ -38,6 +38,15 @@ export function CategoryCycle() {
     }
   }, [anim]);
 
+  // Safety net: if transitionend is ever missed (e.g. a backgrounded tab pauses the
+  // animation), idx could climb past the strip and blank the drum. Recentre it.
+  useEffect(() => {
+    if (idx >= 3 * N || idx < 0) {
+      setAnim(false);
+      setIdx((((idx % N) + N) % N) + N);
+    }
+  }, [idx]);
+
   return (
     <div className="switcher" aria-hidden="true">
       <div className="wheel">
