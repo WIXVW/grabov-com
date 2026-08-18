@@ -40,8 +40,7 @@ h1,h2,h3{ margin:0; }
 /* ---------- hero (grey, almost full height) ---------- */
 .hero{ position:relative; min-height:88vh; overflow:hidden; color:#fff; background:#34383e; }
 .hero-bg{ position:absolute; inset:0; z-index:0; }
-.hero-bg img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 56%; opacity:0; transition:opacity 1s ease; }
-.hero-bg img.on{ opacity:1; }
+.hero-bg img{ width:100%; height:100%; object-fit:cover; object-position:center 56%; }
 .hero-grad{ position:absolute; inset:0; z-index:1;
   background:
     linear-gradient(180deg, rgba(18,20,23,.72) 0%, rgba(34,38,43,.28) 26%, rgba(60,64,70,.12) 52%, rgba(24,27,31,.6) 100%),
@@ -55,14 +54,10 @@ h1,h2,h3{ margin:0; }
 .hbtn{ display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.62); border-radius:999px; padding:11px 24px; font-size:14.5px; font-weight:500; color:#fff; transition:.18s; }
 .hbtn:hover{ background:rgba(255,255,255,.15); }
 .hbtn svg{ opacity:.85; }
-.switcher{ position:absolute; left:0; right:0; bottom:38px; z-index:2; --sw-dur:5s; }
+.switcher{ position:absolute; left:0; right:0; bottom:38px; z-index:2; }
 .switcher .wrap{ display:flex; flex-direction:column; gap:2px; align-items:flex-start; }
-.switcher button{ position:relative; display:flex; align-items:center; gap:12px; background:none; border:0; padding:6px 0; font-family:inherit; font-size:14.5px; color:rgba(255,255,255,.5); cursor:pointer; text-align:left; transition:color .2s; }
-.switcher button:hover{ color:rgba(255,255,255,.82); }
-.switcher button.on{ color:#fff; font-weight:600; }
-.switcher .bar{ position:relative; flex:0 0 auto; width:2px; height:16px; background:rgba(255,255,255,.28); overflow:hidden; }
-.switcher .fill{ position:absolute; left:0; top:0; width:100%; height:0; background:#fff; animation:sw-fill var(--sw-dur) linear forwards; }
-@keyframes sw-fill{ from{ height:0; } to{ height:100%; } }
+.switcher .item{ font-size:14.5px; color:rgba(255,255,255,.5); padding:5px 0 5px 13px; border-left:2px solid transparent; transition:color .5s ease, border-color .5s ease; }
+.switcher .item.on{ color:#fff; font-weight:600; border-left-color:#fff; }
 @media (max-width:640px){ .switcher{ display:none; } }
 
 /* ---------- category cards (block 2) ---------- */

@@ -1,4 +1,4 @@
-import { HeroStage } from "@/components/HeroStage";
+import { CategoryCycle } from "@/components/CategoryCycle";
 import { Carousel } from "@/components/Carousel";
 import { ServiceArea } from "@/components/ServiceArea";
 import { QuoteForm } from "@/components/QuoteForm";
@@ -9,7 +9,9 @@ export default function Home() {
     <>
       <main>
       <section className="hero" id="top">
-        <HeroStage />
+        <div className="hero-bg">
+          <img src="/hero.jpg" alt="Aerial drone photography over North Central Texas" />
+        </div>
         <div className="hero-grad" />
 
         {/* top nav */}
@@ -55,6 +57,8 @@ export default function Home() {
           </div>
         </div>
 
+        {/* auto-cycling category labels (decorative) */}
+        <CategoryCycle />
       </section>
 
       {/* BLOCK 2 — category cards */}
