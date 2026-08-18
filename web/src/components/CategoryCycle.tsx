@@ -22,10 +22,13 @@ export function CategoryCycle() {
   }, []);
 
   // After a move settles, snap the centre back into the middle copy without animating.
-  function onEnd() {
+  // Uses the settled `idx` (not a functional update) so duplicate transitionend events
+  // from the 9 rows all resolve to the same value — idempotent.
+  function onEnd(e: React.TransitionEvent) {
+    if (e.propertyName !== "transform") return;
     if (idx >= 2 * N) {
       setAnim(false);
-      setIdx((i) => i - N);
+      setIdx(idx - N);
     }
   }
   useEffect(() => {
