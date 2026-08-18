@@ -20,7 +20,7 @@ export function Footer() {
 
           <div className="col">
             <h4>Explore</h4>
-            <a href="#reel">Selected work</a>
+            <a href="#work">Selected work</a>
             <a href="#how">How it works</a>
             <a href="#coverage">Service area</a>
             <a href="#book">Request a quote</a>

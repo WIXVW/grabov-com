@@ -62,7 +62,7 @@ export function Carousel() {
   }, [animate]);
 
   return (
-    <section className="showcase" id="reel" ref={sectionRef}>
+    <section className="showcase" id="work" ref={sectionRef}>
       <div className="showcase-head">
         <h2>See it in the field.</h2>
         <p>Recent aerial photo and video from shoots across North Central Texas.</p>
