@@ -1,5 +1,6 @@
 import { CategoryCycle } from "@/components/CategoryCycle";
 import { Carousel } from "@/components/Carousel";
+import { Pricing } from "@/components/Pricing";
 import { ServiceArea } from "@/components/ServiceArea";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Footer } from "@/components/Footer";
@@ -132,6 +133,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* BLOCK 4.5 — pricing */}
+      <Pricing />
 
       {/* BLOCK 5 — CTA banner */}
       <section className="cta5">
