@@ -72,7 +72,7 @@ export function CoverageMapInner() {
         <TileLayer url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" subdomains="abcd" />
 
         <Circle center={GRANBURY} radius={25 * MI} pathOptions={{ color: "rgba(0,0,0,.2)", weight: 1, fill: false, dashArray: "2 6" }} />
-        <Circle center={GRANBURY} radius={radius} pathOptions={{ color: "#2b7de9", weight: 1.6, fillColor: "#2b7de9", fillOpacity: 0.05, dashArray: "3 7" }} />
+        <Circle center={GRANBURY} radius={radius} pathOptions={{ color: "#0d9488", weight: 1.6, fillColor: "#0d9488", fillOpacity: 0.05, dashArray: "3 7" }} />
 
         {cities.map((c) => (
           <CircleMarker key={c.n} center={c.c} radius={3.6} pathOptions={{ color: "#fff", weight: 1.4, fillColor: "#3a3d42", fillOpacity: 1 }}>
@@ -80,7 +80,7 @@ export function CoverageMapInner() {
           </CircleMarker>
         ))}
 
-        <CircleMarker center={GRANBURY} radius={7} pathOptions={{ color: "#fff", weight: 2.5, fillColor: "#2b7de9", fillOpacity: 1 }}>
+        <CircleMarker center={GRANBURY} radius={7} pathOptions={{ color: "#fff", weight: 2.5, fillColor: "#0d9488", fillOpacity: 1 }}>
           <Tooltip permanent direction="left" offset={[-9, 0]} className="area-tip area-tip-main">Granbury</Tooltip>
         </CircleMarker>
       </MapContainer>

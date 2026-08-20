@@ -5,7 +5,7 @@
   --muted:#70757c;
   --bg:#ffffff;
   --bg-2:#f4f5f6;
-  --accent:#2b7de9;
+  --accent:#0d9488;
   --line:rgba(0,0,0,.1);
   --sans:var(--font-inter), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
@@ -34,7 +34,7 @@ h1,h2,h3{ margin:0; }
 .nav-right .ic{ color:rgba(255,255,255,.9); display:inline-flex; }
 .nav-right .phone{ font-size:14px; color:rgba(255,255,255,.9); font-weight:500; }
 .store{ background:var(--accent); color:#fff; padding:8px 17px; border-radius:999px; font-size:13.5px; font-weight:500; display:inline-flex; gap:7px; align-items:center; }
-.store:hover{ background:#1c6fd6; }
+.store:hover{ background:#0b7d72; }
 @media (max-width:960px){ .nav-links, .nav-right .phone{ display:none; } }
 
 /* ---------- hero (grey, almost full height) ---------- */
@@ -152,7 +152,7 @@ h1,h2,h3{ margin:0; }
 
 /* ---------- CTA banner (block 5) ---------- */
 .pill-blue{ display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#fff; font-size:15px; font-weight:500; padding:13px 28px; border-radius:999px; transition:.18s; }
-.pill-blue:hover{ background:#1c6fd6; }
+.pill-blue:hover{ background:#0b7d72; }
 .cta5{ padding:44px 0 84px; background:#fff; }
 .cta5-panel{ position:relative; background:#f1f2f3; display:grid; grid-template-columns:1.02fr .98fr; min-height:470px; overflow:hidden; }
 .cta5-text{ align-self:center; padding:56px 40px 56px 64px; }
@@ -204,7 +204,7 @@ h1,h2,h3{ margin:0; }
 .qform .note{ font-size:12.5px; color:var(--muted); text-align:center; margin-top:2px; }
 .qform .err{ font-size:13px; color:#d43f3f; text-align:center; }
 .form-ok{ text-align:center; padding:34px 12px; }
-.form-ok .ic{ width:58px; height:58px; border-radius:999px; background:#e7f0fd; color:var(--accent); display:grid; place-items:center; margin:0 auto 18px; }
+.form-ok .ic{ width:58px; height:58px; border-radius:999px; background:#dcf2ee; color:var(--accent); display:grid; place-items:center; margin:0 auto 18px; }
 .form-ok h3{ font-size:23px; font-weight:600; }
 .form-ok p{ color:var(--muted); margin-top:9px; }
 @media (max-width:860px){ .form-grid{ grid-template-columns:1fr; gap:38px; } .qrow{ grid-template-columns:1fr; } }
