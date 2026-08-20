@@ -17,16 +17,35 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://abovecapture.com";
+const DESCRIPTION =
+  "FAA Part 107 certified drone photography and aerial video for real estate, land, ranches, construction and roof inspections across North Central Texas. Listing-ready files in 24–48 hours.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "AboveCapture | Drone Photography & Video — North Central Texas",
-  description:
-    "FAA Part 107 certified drone photography and aerial video for real estate, land, ranches, construction and roof inspections across North Central Texas. Listing-ready files in 24–48 hours.",
+  description: DESCRIPTION,
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "AboveCapture — Drone Photography & Video",
-    description:
-      "Aerial photography that makes property sell itself. Real estate, land and ranches across North Central Texas.",
+    title: "AboveCapture — Aerial Photography & Video",
+    description: DESCRIPTION,
+    url: SITE_URL,
+    siteName: "AboveCapture",
     type: "website",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AboveCapture — aerial photography & video across North Central Texas",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AboveCapture — Aerial Photography & Video",
+    description: DESCRIPTION,
+    images: ["/og.jpg"],
   },
 };
 
