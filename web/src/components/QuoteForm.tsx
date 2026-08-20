@@ -6,7 +6,7 @@ import { useState } from "react";
 // Get a free access key at https://web3forms.com (enter max@grabov.com — no account),
 // then paste it below. The key is meant to be public, so it's safe in client code.
 // Until a real key is set, the form validates and shows success but does NOT deliver.
-const WEB3FORMS_KEY: string = "YOUR_ACCESS_KEY";
+const WEB3FORMS_KEY: string = "1bf57c4a-9bfb-4669-9817-14bc4d27d2d7";
 const wired = WEB3FORMS_KEY !== "YOUR_ACCESS_KEY" && WEB3FORMS_KEY.length > 10;
 
 export function QuoteForm() {
