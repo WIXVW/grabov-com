@@ -146,10 +146,21 @@ h1,h2,h3{ margin:0; }
 .pcat-note{ font-size:12.5px; color:var(--muted); line-height:1.5; margin:16px 0 24px; }
 .pc-cta{ margin-top:auto; display:inline-flex; justify-content:center; align-items:center; padding:12px 20px; border:1px solid var(--ink); color:var(--ink); font-size:14.5px; font-weight:500; border-radius:999px; transition:.18s; }
 .pc-cta:hover{ background:var(--ink); color:#fff; }
-.price-addons{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 12px; margin-top:34px; color:var(--muted); font-size:13.5px; }
-.price-addons .pa-label{ font-weight:600; color:var(--ink); text-transform:uppercase; letter-spacing:.1em; font-size:12px; }
-.price-addons span:not(.pa-label){ background:var(--bg-2); padding:6px 12px; }
-@media (max-width:860px){ .price-cats{ grid-template-columns:1fr; } }
+.price-cats-2{ grid-template-columns:repeat(2,1fr); max-width:840px; margin:0 auto; }
+.price-group-h{ text-align:center; font-size:13px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:52px 0 20px; }
+/* packages */
+.pkg{ text-align:left; }
+.pkg-price{ font-size:30px; font-weight:600; letter-spacing:-.02em; color:var(--ink); margin:12px 0 18px; }
+.pkg-list{ list-style:none; padding:0; margin:0 0 24px; display:flex; flex-direction:column; gap:10px; }
+.pkg-list li{ position:relative; padding-left:24px; font-size:14px; color:var(--muted); line-height:1.4; }
+.pkg-list li::before{ content:""; position:absolute; left:4px; top:2px; width:6px; height:11px; border:solid var(--accent); border-width:0 2px 2px 0; transform:rotate(45deg); }
+/* websites & marketing list */
+.price-mkt{ display:grid; grid-template-columns:1fr 1fr; gap:0 48px; border-top:1px solid var(--line); }
+.mrow{ display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:15px 2px; border-bottom:1px solid var(--line); font-size:14.5px; }
+.mrow span{ color:var(--ink); }
+.mrow b{ color:var(--ink); font-weight:600; white-space:nowrap; }
+.price-foot{ text-align:center; color:var(--muted); font-size:13px; line-height:1.5; margin:30px auto 0; max-width:52ch; }
+@media (max-width:860px){ .price-cats{ grid-template-columns:1fr; } .price-cats-2{ grid-template-columns:1fr; max-width:520px; } .price-mkt{ grid-template-columns:1fr; gap:0; } }
 
 /* ---------- CTA banner (block 5) ---------- */
 .pill-blue{ display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:#fff; font-size:15px; font-weight:500; padding:13px 28px; border-radius:999px; transition:.18s; }

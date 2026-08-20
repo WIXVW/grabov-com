@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 
-// TODO: create a free form at formspree.io and paste its endpoint here to receive emails.
-// Until then the form validates and shows the success state but does not deliver.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xxxxxxxx";
-const wired = !FORMSPREE_ENDPOINT.includes("xxxxxxxx");
+// Submissions are delivered by Web3Forms straight to max@grabov.com.
+// Get a free access key at https://web3forms.com (enter max@grabov.com — no account),
+// then paste it below. The key is meant to be public, so it's safe in client code.
+// Until a real key is set, the form validates and shows success but does NOT deliver.
+const WEB3FORMS_KEY: string = "YOUR_ACCESS_KEY";
+const wired = WEB3FORMS_KEY !== "YOUR_ACCESS_KEY" && WEB3FORMS_KEY.length > 10;
 
 export function QuoteForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -16,12 +18,17 @@ export function QuoteForm() {
     if (!wired) { setStatus("ok"); form.reset(); return; }
     setStatus("sending");
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const data = new FormData(form);
+      data.append("access_key", WEB3FORMS_KEY);
+      data.append("subject", "New quote request — AboveCapture");
+      data.append("from_name", "AboveCapture website");
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: new FormData(form),
+        body: data,
       });
-      if (res.ok) { setStatus("ok"); form.reset(); }
+      const json = await res.json().catch(() => ({ success: false }));
+      if (res.ok && json.success) { setStatus("ok"); form.reset(); }
       else setStatus("error");
     } catch {
       setStatus("error");
