@@ -18,6 +18,7 @@ type Slide = {
 const slides: Slide[] = [
   { type: "video", src: "/reel-riverview.mp4", poster: "/reel-riverview.jpg", kicker: "Land & ranch", title: "River View Ranch", href: "#work" },
   { src: "/ranch-aerial-photography-sunset.jpg", pos: "center 60%", kicker: "Land & ranch", title: "Country estate, golden hour", href: "#work" },
+  { src: "/roof-inspection.jpg", pos: "center 55%", kicker: "Roof inspection", title: "Every shingle, no ladder", href: "#work" },
   { src: "/aerial-orthomosaic-site-survey.jpg", fit: "contain", kicker: "Mapping & survey", title: "Full-site orthomosaic", href: "#work" },
 ];
 
