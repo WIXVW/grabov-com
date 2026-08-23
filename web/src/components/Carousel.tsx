@@ -30,6 +30,7 @@ export function Carousel() {
   const [index, setIndex] = useState(N); // start in the middle copy
   const [animate, setAnimate] = useState(true);
   const [inView, setInView] = useState(false);
+  const [paused, setPaused] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const drag = useRef<{ x: number; active: boolean }>({ x: 0, active: false });
 
@@ -62,6 +63,13 @@ export function Carousel() {
     }
   }, [animate]);
 
+  // Gentle autoplay — only while the carousel is in view and not hovered.
+  useEffect(() => {
+    if (!inView || paused) return;
+    const id = setInterval(() => go(1), 6000);
+    return () => clearInterval(id);
+  }, [inView, paused, go]);
+
   return (
     <section className="showcase" id="work" ref={sectionRef}>
       <div className="showcase-head">
@@ -69,7 +77,11 @@ export function Carousel() {
         <p>Recent aerial photo and video from shoots across North Central Texas.</p>
       </div>
 
-      <div className="carousel">
+      <div
+        className="carousel"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
         <div
           className="car-track"
           style={{ ["--i" as string]: index, transition: animate ? undefined : "none" } as React.CSSProperties}
