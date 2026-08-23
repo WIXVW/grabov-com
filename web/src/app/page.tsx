@@ -41,6 +41,7 @@ export default function Home() {
         <div className="hero-in">
           <div className="kick">Aerial Photography &amp; Video · Real Estate &amp; Land</div>
           <h1>Above<span>Capture</span></h1>
+          <div className="byline">by Grabov Aerial Media</div>
           <div className="tag">See it from above</div>
           <div className="btns">
             <a className="hbtn" href="#work">
