@@ -1,0 +1,18 @@
+/* Dayberg Houses — single house page. Styled from the approved Figma layout. */
+
+.dh-house {
+	--dh-container: 1200px;
+	--dh-gutter: 20px;
+}
+
+.dh-container {
+	max-width: var(--dh-container);
+	margin: 0 auto;
+	padding: 0 var(--dh-gutter);
+}
+
+.dh-hero__media img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
