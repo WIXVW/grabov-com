@@ -19,6 +19,7 @@ const slides: Slide[] = [
   { type: "video", src: "/reel-riverview.mp4", poster: "/reel-riverview.jpg", kicker: "Land & ranch", title: "River View Ranch", href: "#work" },
   { src: "/ranch-aerial-photography-sunset.jpg", pos: "center 60%", kicker: "Land & ranch", title: "Country estate, golden hour", href: "#work" },
   { src: "/roof-inspection.jpg", pos: "center 55%", kicker: "Roof inspection", title: "Every shingle, no ladder", href: "#work" },
+  { type: "video", src: "/roof-before-after.mp4", poster: "/roof-before-after.jpg", kicker: "Construction & roofs", title: "Roof, before & after", href: "#work" },
   { src: "/aerial-orthomosaic-site-survey.jpg", fit: "contain", kicker: "Mapping & survey", title: "Full-site orthomosaic", href: "#work" },
 ];
 
@@ -64,11 +65,13 @@ export function Carousel() {
   }, [animate]);
 
   // Gentle autoplay — only while the carousel is in view and not hovered.
+  // Image slides advance every 6s; video slides hold and advance when the clip ends.
   useEffect(() => {
     if (!inView || paused) return;
-    const id = setInterval(() => go(1), 6000);
-    return () => clearInterval(id);
-  }, [inView, paused, go]);
+    if (slides[activeReal]?.type === "video") return;
+    const id = setTimeout(() => go(1), 6000);
+    return () => clearTimeout(id);
+  }, [inView, paused, activeReal, go]);
 
   return (
     <section className="showcase" id="work" ref={sectionRef}>
@@ -107,7 +110,7 @@ export function Carousel() {
                 <div className="m">
                   {/* Only the centred slide loads/plays its video — neighbours show a light poster. */}
                   {s.type === "video" && isActive && inView ? (
-                    <video src={s.src} poster={s.poster} muted loop playsInline autoPlay preload="none" />
+                    <video src={s.src} poster={s.poster} muted playsInline autoPlay preload="none" onEnded={() => { if (!paused) go(1); }} />
                   ) : (
                     <img
                       src={s.type === "video" ? (s.poster ?? s.src) : s.src}
